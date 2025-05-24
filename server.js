@@ -13,7 +13,14 @@ app.get('/proxy', async (req, res) => {
   if (!targetUrl) return res.status(400).send('URL mancante');
 
   try {
-    const response = await fetch(targetUrl);
+    const response = await fetch(targetUrl, {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)',
+        'Accept': 'text/html',
+        'Accept-Language': 'en-US,en;q=0.9',
+        'Referer': targetUrl
+      }
+    });
     const contentType = response.headers.get("content-type") || "text/html";
     const content = await response.text();
     res.setHeader('Content-Type', contentType);

@@ -1,7 +1,7 @@
 {
   "name": "proxy-app",
   "version": "1.0.0",
-  "description": "Proxy CORS semplice per incorporare siti web",
+  "description": "Proxy CORS semplice con user-agent",
   "main": "server.js",
   "type": "module",
   "scripts": {
